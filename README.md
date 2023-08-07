@@ -4,12 +4,13 @@
 
 ## Tailwind CSS Image Mask Plugin
 
-![Static Badge](https://img.shields.io/badge/%40designbycode%2Ftailwindcss-mask-image)
+[![npm version](https://badge.fury.io/js/@designbycode%2Ftailwindcss-mask-image.svg)](https://badge.fury.io/js/@designbycode%2Ftailwindcss-mask-image)
 ![npm](https://img.shields.io/npm/dt/%40designbycode/tailwindcss-mask-image)
 ![NPM](https://img.shields.io/npm/l/%40designbycode%2Ftailwindcss-mask-image)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/%40designbycode%2Ftailwindcss-mask-image)
-![GitHub Repo stars](https://img.shields.io/github/stars/designbycode/tailwindcss-mask-image)
+![ts](https://badgen.net/badge/Built%20With/TypeScript/blue)
 [![GitHub stars](https://img.shields.io/github/stars/DesignByCode/tailwindcss-mask-image?style=social)](https://github.com/DesignByCode/tailwindcss-mask-image/stargazers)
+[![HitCount](https://hits.dwyl.com/designbycode/tailwindcss-mask-image.svg?style=flat)](http://hits.dwyl.com/designbycode/tailwindcss-mask-image)
 
 [![NPM](https://nodei.co/npm/@designbycode/tailwindcss-mask-image.png)](https://nodei.co/npm/@designbycode/tailwindcss-mask-image/)
 
