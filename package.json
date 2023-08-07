@@ -1,7 +1,7 @@
 {
   "name": "@designbycode/tailwindcss-mask-image",
-  "version": "1.0.0",
-  "description": "Tailwindcss utilities for using gradient mask-image",
+  "version": "1.1.3",
+  "description": "Tailwindcss utilities for text stroke",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,19 @@
     "url": "https://github.com/DesignByCode/tailwindcss-mask-image/issues"
   },
   "homepage": "https://github.com/DesignByCode/tailwindcss-mask-image#readme",
-  "author": "Claude Myburgh <claude@designbycode.co.za>",
+  "authors": [
+    {
+      "name": "Claude Myburgh",
+      "email": "claude@designbycode.co.za",
+      "url": "https://designbycode.co.za"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/DesignByCode/tailwindcss-mask-image/blob/main/LICENCE"
+    }
+  ],
   "keywords": [
     "tailwindcss",
     "plugin",
@@ -20,18 +32,44 @@
     "mask image",
     "designbycode"
   ],
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rd /s /q esm dist lib build .cache>nul 2>&1|echo.>nul",
+    "dev": "pnpm build --watch",
+    "build": "tsc && vite build"
   },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> .5% or last 2 versions"
+  ],
   "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "prettier": "^2.8.8",
+    "husky": "^8.0.3",
+    "tailwindcss": "^3.3.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.27",
-    "release-it": "^15.11.0",
-    "tailwindcss": "^3.3.3"
+    "terser": "^5.19.2",
+    "@types/node": "^20.4.8"
   }
 }

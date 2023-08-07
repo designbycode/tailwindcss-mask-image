@@ -1,3 +1,7 @@
 .idea*
 /node_modules
 .turbo
+*.png
+*.jpeg
+*.jpg
+*.fig

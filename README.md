@@ -1,4 +1,8 @@
-# Tailwind CSS Image Mask Plugin
+<a href="#installation" width="100%">
+<img src="banner.svg" alt="Title banner"/>
+</a>
+
+## Tailwind CSS Image Mask Plugin
 
 ![Static Badge](https://img.shields.io/badge/%40designbycode%2Ftailwindcss-mask-image)
 ![npm](https://img.shields.io/npm/dt/%40designbycode/tailwindcss-mask-image)
@@ -13,21 +17,24 @@ The Tailwind CSS Image Mask Plugin is a custom plugin that extends Tailwind CSS 
 
 ![Mask Image Plugin](screenshot.png)
 
-## 🚩 Table of Contents
+## 📇 Table of Contents
 
-* [Tailwind CSS Image Mask Plugin](#tailwind-css-image-mask-plugin)
-    * [Installation](#installation)
-        * [Using pnpm](#using-pnpm)
-        * [Using npm](#using-npm)
-        * [Using yarn](#using-yarn)
-    * [Usage](#usage)
-    * [Utilities](#utilities)
-    * [Applying Image Masks](#applying-image-masks)
-    * [Default Values](#default-values)
-    * [Changing Gradient Starting and Ending Points](#changing-gradient-starting-and-ending-points)
-        * [Available percentage values for --mask-image-from and --mask-image-to:](#available-percentage-values-for---mask-image-from-and---mask-image-to)
-    * [Configuration](#configuration)
-    * [Example](#example)
+* [Installation](#installation)
+    * [Using pnpm](#using-pnpm)
+    * [Using npm](#using-npm)
+    * [Using yarn](#using-yarn)
+* [Usage](#usage)
+* [Utilities](#utilities)
+* [Applying Image Masks](#applying-image-masks)
+* [Default Values](#default-values)
+* [Changing Gradient Starting and Ending Points](#changing-gradient-starting-and-ending-points)
+    * [Available percentage values for --mask-image-from and --mask-image-to:](#available-percentage-values-for---mask-image-from-and---mask-image-to)
+* [Configuration](#configuration)
+* [Example](#example)
+* [Contributing](#contributing)
+* [License](#license)
+* [Author](#author)
+* [Acknowledgments](#acknowledgments)
 
 ## Installation
 
@@ -183,9 +190,26 @@ Here's an example of how you can use the utility classes to apply image masks:
 
 ```
 
-## 📜 License
+## Contributing
 
-This software is licensed under the MIT
+Contributions to this plugin are welcome! If you encounter any issues, have feature requests, or want to improve the plugin, feel free to create a pull request or submit an issue on the GitHub repository.
+
+## License
+
+This project is licensed under the [MIT](LICENCE) License - see the [LICENSE](LICENCE) file for details.
+
+## Author
+
+<div>
+<img  align="left" style="box-shadow:3px 3px 3px rgba(0,0,0,75);border-radius:1rem;border:solid 2px rgba(255,225,225,.25)" src="https://github.com/designbycode.png?size=130" alt="Claude Myburgh">
+</div>
+<h2 style="margin-top:0">Claude Myburgh</h2><ul style="padding-left:0;margin-top:-.63rem;list-style:none"><li>Github:<a href="https://github.com/designbycode"> @designbycode</a></li><li>Npm:<a href="https://www.npmjs.
+com/~designbycode_"> @designbycode_</a></li></ul>
+
+## Acknowledgments
+
+- This plugin is inspired by the needs of web developers using Tailwind CSS.
+- Special thanks to the Tailwind CSS team for creating such an amazing framework.
 
 
 
