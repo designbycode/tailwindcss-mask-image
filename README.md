@@ -43,7 +43,7 @@ To use this plugin, you need to install it via pnpm, npm or yarn.
 #### Using pnpm
 
 ```bash
-npm install @designbycode/tailwindcss-mask-image
+pnpm install @designbycode/tailwindcss-mask-image
 ```
 
 #### Using npm
