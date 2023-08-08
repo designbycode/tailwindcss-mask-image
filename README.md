@@ -29,7 +29,7 @@ The Tailwind CSS Image Mask Plugin is a custom plugin that extends Tailwind CSS 
 * [Applying Image Masks](#applying-image-masks)
 * [Default Values](#default-values)
 * [Changing Gradient Starting and Ending Points](#changing-gradient-starting-and-ending-points)
-    * [Available percentage values for --mask-image-from and --mask-image-to:](#available-percentage-values-for---mask-image-from-and---mask-image-to)
+    * [Available percentage values for --mask-image-start and --mask-image-end:](#available-percentage-values-for---mask-image-start-and---mask-image-end)
 * [Configuration](#configuration)
 * [Example](#example)
 * [Contributing](#contributing)
@@ -44,7 +44,7 @@ To use this plugin, you need to install it via pnpm, npm or yarn.
 #### Using pnpm
 
 ```bash
-pnpm install @designbycode/tailwindcss-mask-image
+pnpm add @designbycode/tailwindcss-mask-image
 ```
 
 #### Using npm
@@ -103,49 +103,49 @@ You can apply image masks by using the following utility classes:
 
 The plugin sets some default CSS variables in the :root element, which define the default values for the color and direction of the image masks.
 
-| Css Variable      | Description                                    |
-|:------------------|:-----------------------------------------------|
-| --mask-image-from | Default gradient starting point (default: 0%)  |
-| --mask-image-to   | Default gradient ending point (default: 100%). |
+| Css Variable               | Description                                    |
+|:---------------------------|:-----------------------------------------------|
+| --mask-image-start-{value} | Default gradient starting point (default: 0%)  |
+| --mask-image-end-{value}   | Default gradient ending point (default: 100%). |
 
 ## Changing Gradient Starting and Ending Points
 
 You can dynamically change the starting and ending points of the gradient using the following utility classes:
 
-* ```.mask-image-from-0``` to ```.mask-image-from-100```: Changes the --mask-image-from variable to the specified percentage value.
+* ```.mask-image-start-0``` to ```.mask-image-start-100```: Changes the --mask-image-start variable to the specified percentage value.
 
-* ```.mask-image-to-0 to``` ```.mask-image-to-100```: Changes the --mask-image-to variable to the specified percentage value.
+* ```.mask-image-end-0 to``` ```.mask-image-end-100```: Changes the --mask-image-end variable to the specified percentage value.
 
 ```html
 
-<div class="mask-image-b mask-image-from-25 mask-image-to-75"></div>
+<div class="mask-image-b mask-image-start-25 mask-image-end-75"></div>
 <!-- or by arbitrary value -->
-<div class="mask-image-[73%] mask-image-from-[33%] mask-image-to-[66%]"></div>
+<div class="mask-image-[73%] mask-image-start-[33%] mask-image-end-[66%]"></div>
 ```
 
-#### Available percentage values for --mask-image-from and --mask-image-to:
+#### Available percentage values for --mask-image-start and --mask-image-end:
 
-| Key | Value  | Output               |
-|-----|:------:|:---------------------| 
-| 0   |  "0%"  | .mask-image-from-0   |
-| 5   |  "5%"  | .mask-image-from-5   |
-| 10  | "10%"  | .mask-image-from-10  |
-| 15  | "15%"  | .mask-image-from-15  |
-| 20  | "20%"  | .mask-image-from-20  |
-| 25  | "25%"  | .mask-image-from-25  |
-| 30  | "30%"  | .mask-image-from-30  |
-| 40  | "40%"  | .mask-image-from-40  |
-| 45  | "45%"  | .mask-image-from-45  |
-| 50  | "50%"  | .mask-image-from-50  |
-| 55  | "55%"  | .mask-image-from-55  |
-| 60  | "60%"  | .mask-image-from-60  |
-| 70  | "70%"  | .mask-image-from-70  |
-| 75  | "75%"  | .mask-image-from-75  |
-| 80  | "80%"  | .mask-image-from-80  |
-| 85  | "85%"  | .mask-image-from-85  |
-| 90  | "90%"  | .mask-image-from-90  |
-| 95  | "95%"  | .mask-image-from-95  |
-| 100 | "100%" | .mask-image-from-100 |
+| Key | Value  | Output                |
+|-----|:------:|:----------------------| 
+| 0   |  "0%"  | .mask-image-start-0   |
+| 5   |  "5%"  | .mask-image-start-5   |
+| 10  | "10%"  | .mask-image-start-10  |
+| 15  | "15%"  | .mask-image-start-15  |
+| 20  | "20%"  | .mask-image-start-20  |
+| 25  | "25%"  | .mask-image-start-25  |
+| 30  | "30%"  | .mask-image-start-30  |
+| 40  | "40%"  | .mask-image-start-40  |
+| 45  | "45%"  | .mask-image-start-45  |
+| 50  | "50%"  | .mask-image-start-50  |
+| 55  | "55%"  | .mask-image-start-55  |
+| 60  | "60%"  | .mask-image-start-60  |
+| 70  | "70%"  | .mask-image-start-70  |
+| 75  | "75%"  | .mask-image-start-75  |
+| 80  | "80%"  | .mask-image-start-80  |
+| 85  | "85%"  | .mask-image-start-85  |
+| 90  | "90%"  | .mask-image-start-90  |
+| 95  | "95%"  | .mask-image-start-95  |
+| 100 | "100%" | .mask-image-start-100 |
 
 ## Configuration
 
@@ -185,10 +185,34 @@ Here's an example of how you can use the utility classes to apply image masks:
 
 ```html
 
-<div class="mask-image-t mask-image-from-30 mask-image-to-70">
+<div class="mask-image-t mask-image-start-30 mask-image-end-70">
     <!-- Your content here -->
 </div>
 
+```
+
+> **Note**
+> New to v2.
+> Start and end color opacity
+
+### Opacity for start and end Color
+
+You can set the opacity for start and end color for more control over the mask.
+
+```html
+
+<div class="mask-image-t mask-image-start-opacity-50 mask-image-end-opacity-70">
+    <!-- Your content here -->
+</div>
+```
+
+The arbitrary value have a range from 0 to 100 for even more control over the mask.
+
+```html
+
+<div class="mask-image-t mask-image-start-opacity-[55] mask-image-end-opacity-[20]">
+    <!-- Your content here -->
+</div>
 ```
 
 ## Contributing

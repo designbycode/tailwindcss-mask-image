@@ -3,13 +3,19 @@ const plugin = require("tailwindcss/plugin")
 module.exports = plugin.withOptions(
   function () {
     return function ({ addBase, matchUtilities, theme }: any) {
+      function convertToPercentage(value: number): string {
+        value = value / 100
+        return Math.abs(Math.min(value, 1)).toString()
+      }
+
       // Default values
       addBase({
         ":root": {
-          "--mask-image-color": "#000",
-          "--mask-image-direction": "to bottom",
-          "--mask-image-from": "0%",
-          "--mask-image-to": "100%",
+          "--mi-mask-image-start-opacity": "rgba(0,0,0,0)",
+          "--mi-mask-image-end-opacity": "rgba(0,0,0,1)",
+          "--mi-mask-image-direction": "to bottom",
+          "--mi-mask-image-start": "0%",
+          "--mi-mask-image-end": "100%",
         },
       })
 
@@ -17,7 +23,7 @@ module.exports = plugin.withOptions(
         {
           // Function to generate the CSS properties based on the value from the theme
           "mask-image": (value: string) => ({
-            maskImage: `linear-gradient(${value}, var(--mask-image-color) var(--mask-image-from), transparent var(--mask-image-to))`,
+            maskImage: `linear-gradient(${value}, var(--mi-mask-image-start-opacity) var(--mi-mask-image-start), var(--mi-mask-image-end-opacity)  var(--mi-mask-image-end))`,
           }),
         },
         {
@@ -29,17 +35,42 @@ module.exports = plugin.withOptions(
       // Dynamically changes value form arbitrary values and generate utility classes from theme imageMaskSteps object
       matchUtilities(
         {
-          "mask-image-from": (value: string) => ({
-            "--mask-image-from": value,
+          "mask-image-start": (value: string) => ({
+            "--mi-mask-image-start": value,
           }),
 
-          "mask-image-to": (value: string) => ({
-            "--mask-image-to": value,
+          "mask-image-end": (value: string) => ({
+            "--mi-mask-image-end": value,
           }),
         },
         {
           values: theme("imageMaskSteps"),
           type: "length",
+        }
+      )
+
+      matchUtilities(
+        {
+          "mask-image-start-opacity": (value: string) => {
+            if (parseInt(value) > 1) {
+              value = convertToPercentage(parseInt(value))
+            }
+            return {
+              "--mi-mask-image-start-opacity": `rgba(0,0,0, ${value})`,
+            }
+          },
+
+          "mask-image-end-opacity": (value: string) => {
+            if (parseInt(value) > 1) {
+              value = convertToPercentage(parseInt(value))
+            }
+            return {
+              "--mi-mask-image-end-opacity": `rgba(0,0,0, ${value})`,
+            }
+          },
+        },
+        {
+          values: theme("opacity"),
         }
       )
     }
