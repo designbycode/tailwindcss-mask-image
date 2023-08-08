@@ -11,8 +11,8 @@ module.exports = plugin.withOptions(
       // Default values
       addBase({
         ":root": {
-          "--mi-mask-image-start-opacity": "rgba(0,0,0,0)",
-          "--mi-mask-image-end-opacity": "rgba(0,0,0,1)",
+          "--mi-mask-image-start-opacity": "rgba(0,0,0,1)",
+          "--mi-mask-image-end-opacity": "rgba(0,0,0,0)",
           "--mi-mask-image-direction": "to bottom",
           "--mi-mask-image-start": "0%",
           "--mi-mask-image-end": "100%",
@@ -29,6 +29,7 @@ module.exports = plugin.withOptions(
         {
           // Specify the theme object that contains the image mask directions
           values: theme("imageMaskDirections"),
+          type: ["string"],
         }
       )
 
