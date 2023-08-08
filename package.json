@@ -25,7 +25,11 @@
     }
   ],
   "keywords": [
+    "front-end",
+    "frontend",
+    "css",
     "tailwindcss",
+    "gradient mask",
     "plugin",
     "tailwindcss-plugin",
     "tailwindcss mask-image",
