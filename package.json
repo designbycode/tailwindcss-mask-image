@@ -38,7 +38,8 @@
   ],
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "utils"
   ],
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
@@ -52,9 +53,11 @@
     "access": "public"
   },
   "scripts": {
-    "clean": "rd /s /q esm dist lib build .cache>nul 2>&1|echo.>nul",
+    "build": "tsc && vite build",
+    "clean": "rd /s /q dist .cache>nul 2>&1|echo.>nul",
     "dev": "pnpm build --watch",
-    "build": "tsc && vite build"
+    "postbuild": "tsc --emitDeclarationOnly",
+    "prepublishOnly": "pnpm build"
   },
   "lint-staged": {
     "src/**/*.ts": [
@@ -65,15 +68,19 @@
   "browserslist": [
     "> .5% or last 2 versions"
   ],
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0 || >=3.0.0-alpha.1"
+  },
   "devDependencies": {
+    "@types/node": "^20.4.8",
+    "autoprefixer": "^10.4.14",
+    "husky": "^8.0.3",
+    "postcss": "^8.4.27",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.3",
+    "terser": "^5.19.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "prettier": "^2.8.8",
-    "husky": "^8.0.3",
-    "tailwindcss": "^3.3.3",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.27",
-    "terser": "^5.19.2",
-    "@types/node": "^20.4.8"
+    "vite-plugin-dts": "^3.5.1"
   }
 }
