@@ -3,11 +3,6 @@ const plugin = require("tailwindcss/plugin")
 module.exports = plugin.withOptions(
   function () {
     return function ({ addBase, matchUtilities, theme }: any) {
-      function convertToPercentage(value: number): string {
-        value = value / 100
-        return Math.abs(Math.min(value, 1)).toString()
-      }
-
       // Default values
       addBase({
         ":root": {
@@ -29,7 +24,7 @@ module.exports = plugin.withOptions(
         {
           // Specify the theme object that contains the image mask directions
           values: theme("imageMaskDirections"),
-          type: ["string"],
+          type: ["any"],
         }
       )
 
@@ -53,18 +48,12 @@ module.exports = plugin.withOptions(
       matchUtilities(
         {
           "mask-image-start-opacity": (value: string) => {
-            if (parseInt(value) > 1) {
-              value = convertToPercentage(parseInt(value))
-            }
             return {
               "--mi-mask-image-start-opacity": `rgba(0,0,0, ${value})`,
             }
           },
 
           "mask-image-end-opacity": (value: string) => {
-            if (parseInt(value) > 1) {
-              value = convertToPercentage(parseInt(value))
-            }
             return {
               "--mi-mask-image-end-opacity": `rgba(0,0,0, ${value})`,
             }

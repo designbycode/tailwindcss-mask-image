@@ -18,6 +18,8 @@ webpack.mix.js
 .turbo*
 esbuild.config.js
 
+*.jpeg
+*.jpg
 *.png
 *.svg
 README.md
